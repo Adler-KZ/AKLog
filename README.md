@@ -1,7 +1,7 @@
-# Demo project
+# AKLog project
 
 Try for yourself how quickly you can
-create a new project with API Bakery.
+run this project.
 ## Quickstart
 
 1. Set up a Python virtual environment and install the required Python dependencies:
