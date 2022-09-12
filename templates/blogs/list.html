@@ -1,0 +1,66 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load jalali_tags %}
+
+{% block header %}
+    {% if request.resolver_match.url_name == 'list' %}
+        <h1 class="page-title wow fadeInUp delay-0-2s">مقالات ما</h1>
+    {% elif request.resolver_match.url_name == 'category' %}
+        <h1 class="page-title wow fadeInUp delay-0-2s">دسته بندی " {{ category_obj.title }} "</h1>
+    {% elif request.resolver_match.url_name == 'author_list' %}
+        <h1 class="page-title wow fadeInUp delay-0-2s">مقالات " {{ author_name }} "</h1>
+    {% endif %}
+
+    {% if query %}
+        <p class="breadcrumb-item text-light h2">نتایج جستجو برای "{{ query }}" </p>
+    {% endif %}
+{% endblock %}
+
+{% block left-sidebar %}
+    {% include 'partial/pages/sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    {% for blog in blogs %}
+        <div class="blog-standard-item wow fadeInUp delay-0-2s">
+            <img src="{{ blog.cover.url }}" class="blog-cover" alt="Blog">
+            <ul class="blog-meta">
+                <li><i class="far fa-calendar-alt"></i> <span>{{ blog.datetime_modified|to_jalali:'%d %B %Y' }}</span>
+                </li>
+                <li><i class="far fa-comments"></i> <span>نظرات ({{ blog.comments.active.count }})</span></li>
+                <li><i class="far fa-eye"></i> <span>بازدید کنندگان ({{ blog.total_hits }})</span></li>
+            </ul>
+            <h2 class="d-inline ml-2"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+            {% if blog.is_vip %}<b class="badge-danger px-2 rounded">مقاله ویژه</b>{% endif %}
+            <p> {{ blog.content|truncatewords:20 }} </p>
+            <a href="{{ blog.get_absolute_url }}" class="theme-btn">بیشتر بخوانید<i class="fas fa-arrow-left"></i></a>
+        </div>
+    {% empty %}
+        <p class="sub-title text-center w-100">هیچ مقاله ای وجود ندارد</p>
+    {% endfor %}
+{% endblock %}
+
+{% block pages %}
+    <div class="d-block">
+        {% if blogs.has_other_pages %}
+            <div class="page-number mt-25 justify-content-center mb-5">
+                {% if blogs.has_previous %}
+                    <a href="?page=1&q={{ query }}"><i class="fa fa-angle-double-right"></i></a>
+                {% endif %}
+                {% for i in page_range %}
+                    {% if i == blogs.number %}
+                        <span class="active">{{ i }}</span>
+                    {% elif i == paginator.ELLIPSIS %}
+                        <span>{{ i }}</span>
+                    {% else %}
+                        <a href="?page={{ i }}&q={{ query }}">{{ i }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if blogs.has_next %}
+                    <a href="?page={{ blogs.paginator.num_pages }}&q={{ query }}"><i
+                            class="fa fa-angle-double-left"></i></a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

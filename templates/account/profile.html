@@ -1,0 +1,60 @@
+{% extends '_base.html' %}
+{% load blog_tags %}
+{% load static %}
+
+{% block header %}
+    <h1 class="page-title wow fadeInUp delay-0-2s">پروفایل من</h1>
+{% endblock %}
+
+{% block right-sidebar %}
+    {% include 'partial/pages/dashboard_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <form id="contact-page-form" class="contact-form-three pt-20 wow fadeInUp delay-0-2s"
+          method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="comment-title mb-40">مشخصات من</h3>
+        <div class="row clearfix">
+            <div class="col-sm-6 form-group">
+                <label for="id_first_name">{{ form.first_name.label }}</label>
+                {{ form.first_name }}
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="id_last_name">{{ form.last_name.label }}</label>
+                {{ form.last_name }}
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="id_bio">{{ form.bio.label }}</label>
+                {{ form.bio }}
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="id_username">{{ form.username.label }}</label>
+                {{ form.username }}
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="id_email">{{ form.email.label }}</label>
+                {% if not user.is_superuser %}
+                    <span>(<small class="text-danger m-2">غیر قابل تغییر</small>)</span>
+                {% endif %}
+                {{ form.email }}
+            </div>
+            <div class="col-sm-6 form-group">
+                <div class="form-group mb-0">
+                    <button class="theme-btn" type="submit">ذخیره <i class="fas fa-arrow-left"></i></button>
+                </div>
+            </div>
+            <div class="col-sm-6 form-group">
+                {% if user.has_usable_password %}
+                    <h6>
+                        <a href="{% url 'account_change_password' %}" class="nav-link">تغییر رمز عبور</a>
+                    </h6>
+                {% else %}
+                    <h6>
+                        <a href="{% url 'account_change_password' %}" class="nav-link">ثبت رمز عبور جدید</a>
+                    </h6>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+{% endblock %}

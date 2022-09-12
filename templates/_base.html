@@ -1,0 +1,164 @@
+{% load static %}
+{% load pages_tags %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!--====== Title ======-->
+    <title>Sland - HTML Template || Blog Standard</title>
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+    <!--====== Google Fonts ======-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+          rel="stylesheet">
+    <!--====== Font Awesome ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.5.9.0.min.css' %}">
+    <!--====== Flaticon CSS ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.4.5.3.min.css' %}">
+    <!--====== Magnific Popup ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <!--====== Slick Slider ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <!--====== Nice Select ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <!--====== Padding Margin ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/spacing.min.css' %}">
+    <!--====== Menu css ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/menu.css' %}">
+    <!--====== Main css ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+    <!--====== Local css ======-->
+    {% block CSS %}{% endblock %}
+
+</head>
+
+<body class="inner-page" dir="rtl" style="text-align: right;">
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+
+    <!--====== Header Part Start ======-->
+    <header class="main-header">
+
+        <!--Header-Top-->
+        <div class="header-top text-center text-white bg-blue py-5">
+            <div class="container rel z-1">
+                <p>به سایت من خوش اومدید</p>
+                <img class="header-left-shape" src="{% static 'assets/images/shapes/header-top-left.png' %}"
+                     alt="shape">
+                <img class="header-right-shape slideLeftRight infinite"
+                     src="{% static 'assets/images/shapes/header-top-right.png' %}"
+                     alt="shape">
+            </div>
+        </div>
+
+        {% navbar %}
+
+    </header>
+    <!--====== Header Part End ======-->
+
+
+    <!--====== Page Banner Start ======-->
+    <section class="page-banner bg-blue rel z-1"
+             style="background-image: url({% static 'assets/images/background/banner-bg.png' %});">
+        <div class="container">
+            <div class="banner-inner">
+                {% block header %}
+                    <h1 class="page-title wow fadeInUp delay-0-2s">بدون عنوان</h1>
+                {% endblock %}
+
+            </div>
+        </div>
+        <img class="dots-shape" src="{% static 'assets/images/shapes/white-dots-two.png' %}" alt="Shape">
+        <img class="tringle-shape slideLeftRight" src="{% static 'assets/images/shapes/white-tringle.png' %}"
+             alt="Shape">
+        <img class="close-shape" src="{% static 'assets/images/shapes/white-close.png' %}" alt="Shape">
+        <img src="{% static 'assets/images/newsletter/circle.png' %}" alt="shape" class="banner-circle slideUpRight">
+        <img class="dots-shape-three slideUpDown delay-1-5s"
+             src="{% static 'assets/images/shapes/white-dots-three.png' %}"
+             alt="Shape">
+    </section>
+    <!--====== Page Banner End ======-->
+
+    <!--====== Messages ======-->
+    {% include 'partial/pages/messages.html' %}
+    <!--====== Messages End ======-->
+
+    <!--====== Blog Standard Start ======-->
+    <section class="blog-standard-area pt-50 pb-160 rpt-100 rpb-90">
+        <div class="container">
+            <div class="row">
+                {% block right-sidebar %}{% endblock %}
+                <div class="col-lg-8">
+                    <div class="blog-standard-wrap rmb-75">
+                        {% block content %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+                {% block left-sidebar %}{% endblock %}
+            </div>
+        </div>
+    </section>
+    <!--====== Blog Standard End ======-->
+
+    <!--====== Pages ======-->
+    {% block pages %}{% endblock %}
+    <!--====== Pages End ======-->
+
+    <!--====== Footer Section Start ======-->
+    {% block footer %}
+        {% include 'partial/pages/footer.html' %}
+    {% endblock %}
+    <!--====== Footer Section End ======-->
+
+</div>
+<!--End pagewrapper-->
+
+
+<!-- Scroll Top Button -->
+<button class="scroll-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></button>
+
+
+<!--====== Jquery ======-->
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<!--====== Bootstrap ======-->
+<script src="{% static 'assets/js/bootstrap.4.5.3.min.js' %}"></script>
+<!--====== Appear js ======-->
+<script src="{% static 'assets/js/appear.js' %}"></script>
+<!--====== WOW js ======-->
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<!--====== Isotope ======-->
+<script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+<!--====== Circle Progress ======-->
+<script src="{% static 'assets/js/circle-progress.min.js' %}"></script>
+<!--====== Image loaded ======-->
+<script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+<!--====== Magnific ======-->
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+<!--====== Slick Slider ======-->
+<script src="{% static 'assets/js/slick.min.js' %}"></script>
+<!--====== Main JS ======-->
+<script src="{% static 'assets/js/script.js' %}"></script>
+<!--====== Local JS ======-->
+{% block JS %}{% endblock %}
+
+
+</body>
+
+</html>

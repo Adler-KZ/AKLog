@@ -1,0 +1,57 @@
+{% load static %}
+
+<footer class="footer-section bg-lighter rel z-1 pt-50 mt-50">
+    <div class="container">
+
+        <div class="row justify-content-between">
+            <div class="col-xl-3 col-sm-6 col-7 col-small">
+                <div class="footer-widget about-widget">
+                    <div class="footer-logo mb-20">
+                        <a href="index.html"><img src="{% static 'assets/images/logos/logo.png' %}" alt="Logo"></a>
+                    </div>
+                    <p>AKLog یه پروژه ابتدایی برا محک زدن توانایی های خود و برای روزمه خود ساخته و توسعه یافته است</p>
+                    <a href="" class="read-more">مشاهده کامل <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+            <div class="col-xl-2 col-sm-4 col-5 col-small">
+                <div class="footer-widget link-widget">
+                    <h4 class="footer-title">دسترسی سریع</h4>
+                    <ul class="list-style-two">
+                        <li><a href="{% url 'pages:home' %}">خانه</a></li>
+                        <li><a href="{% url 'account_profile' %}">پروفایل</a></li>
+                        <li><a href="{% url 'blogs:list' %}">لیست مقالات</a></li>
+                        <li><a href="{% url 'pages:contact' %}">تماس با ما</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-4">
+                <div class="footer-widget contact-widget">
+                    <h4 class="footer-title">در تماس باشید</h4>
+                    <ul class="list-style-three">
+                        <li><i class="fas fa-map-marker-alt"></i> :/</li>
+                        <li><i class="fas fa-envelope-open"></i>
+                            <a href="mailto:discord.1843@gmail.com">discord.1843@gmail.com</a>
+                        </li>
+                        <li><i class="fas fa-phone"></i><a dir="ltr" href="callto:+989999999">+98 (999) 9999</a>
+                        </li>
+                    </ul>
+                    <div class="social-style-one mt-25">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area text-center">
+            <p>© 2022 <a href="index.html">Sland.</a> All rights reserved</p>
+        </div>
+    </div>
+    <img class="dots-shape" src="{% static 'assets/images/shapes/dots.png' %}" alt="Shape">
+    <img class="tringle-shape" src="{% static 'assets/images/shapes/tringle-two.png' %}" alt="Shape">
+    <img class="close-shape" src="{% static 'assets/images/shapes/close.png' %}" alt="Shape">
+    <img class="circle-shape" src="{% static 'assets/images/shapes/circle-two.png' %}" alt="Shape">
+    <div class="left-circles"></div>
+    <div class="right-circles"></div>
+</footer>

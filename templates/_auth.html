@@ -1,0 +1,31 @@
+{% load static %}
+
+<!doctype html>
+<html lang="fa">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'accounts/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+
+<script src="{% static 'accounts/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'accounts/js/popper.min.js' %}"></script>
+<script src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'accounts/js/main.js' %}"></script>
+</body>
+</html>

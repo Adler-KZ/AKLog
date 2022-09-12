@@ -1,0 +1,56 @@
+{% extends "_base.html" %}
+
+{% block header %}
+    <h1 class="page-title wow fadeInUp delay-0-2s">افزودن مقاله جدید</h1>
+{% endblock %}
+
+
+{% block right-sidebar %}
+    {% include 'partial/pages/dashboard_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <form id="contact-page-form" class="contact-form-three pt-20 wow fadeInUp delay-0-2s"
+          method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="comment-title mb-40">مقاله جدید</h3>
+        <div class="row clearfix">
+            <div class="col-sm-6 form-group">
+                {{ form.title }}
+            </div>
+            <div class="col-sm-6 form-group">
+                {{ form.slug }}
+                <span class="text text-danger">{{ form.slug.errors }}</span>
+            </div>
+            <div class="col-md-12 form-group">
+                {{ form.content }}
+            </div>
+            <div class="col-sm-6 form-group">
+                {{ form.categories }}
+            </div>
+            <div class="col-sm-6 form-group">
+                {{ form.cover }}
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="id_status">{{ form.status.label }}</label>
+                {{ form.status }}
+                <span class="text-danger">{{ form.status.errors|striptags }}</span>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="id_is_vip">{{ form.is_vip.label }}</label>
+                <p> آیا یک مقاله ویژه است؟ {{ form.is_vip }}</p>
+            </div>
+            {% if user.is_superuser %}
+                <div class="col-sm-6 form-group">
+                    <label for="id_author">{{ form.author.label }}</label>
+                    {{ form.author }}
+                </div>
+            {% endif %}
+            <div class="col-md-12">
+                <div class="form-group mb-0">
+                    <button class="theme-btn" type="submit">ذخیره <i class="fas fa-arrow-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

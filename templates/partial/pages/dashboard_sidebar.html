@@ -1,0 +1,27 @@
+<div class="col-xl-4 col-lg-5">
+    <div class="service-sidebar rmb-75">
+        <div class="service-widget service-list wow fadeInUp delay-0-3s"
+             style="visibility: visible; animation-name: fadeInUp;">
+            <ul>
+                <li {% if request.resolver_match.url_name == 'account_profile' %}class="active"{% endif %}><a
+                        href="{% url 'account_profile' %}">مشخصات من<i class="fas fa-angle-left"></i></a></li>
+                <li {% if request.resolver_match.url_name == 'account_subscription' %}class="active"{% endif %}>
+                    <a href="{% url 'account_subscription' %}">اشتراک من<i class="fas fa-angle-left"></i></a></li>
+
+                {% if perms.blogs.add_blog %}
+                    <li {% if request.resolver_match.url_name == 'create' %}class="active"{% endif %}><a
+                            href="{% url 'blogs:create' %}">افزودن مقاله<i class="fas fa-angle-left"></i></a></li>
+                    <li {% if request.resolver_match.url_name == 'author' %}class="active"{% endif %}><a
+                            href="{% url 'blogs:author' %}">مقالات من <i class="fas fa-angle-left"></i></a></li>
+                {% endif %}
+                {% if perms.blogs.publish_blog %}
+                    <li {% if request.resolver_match.url_name == 'review' %}class="active"{% endif %}><a
+                            href="{% url 'blogs:review' %}">بررسی مقالات <i class="fas fa-angle-left"></i></a></li>
+                {% endif %}
+                <li><a href="{% url 'account_logout' %}" class="text-danger">خروج از حساب<i
+                        class="fas fa-angle-left"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

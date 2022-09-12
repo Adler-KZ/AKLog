@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block header %}
+    <h1 class="page-title wow fadeInUp delay-0-2s">تماس با ما</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="contact-form-area wow align-items-center fadeInRight delay-0-2s"
+         style="visibility: visible; animation-name: fadeInRight;">
+        <div class="section-title">
+            <span class="sub-title">در ارتباط باشید</span>
+            <h2>نظرات خود را با ما به اشتراک بگذارید</h2>
+        </div>
+        <form class="contact-form-three pt-35" action="{% url 'pages:contact' %}" method="post">
+            {% csrf_token %}
+            <div class="row clearfix">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ form.message }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-0">
+                        <button class="theme-btn" type="submit">ارسال نظر<i class="fas fa-arrow-left"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

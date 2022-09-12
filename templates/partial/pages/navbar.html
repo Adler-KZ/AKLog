@@ -1,0 +1,98 @@
+{% load static %}
+
+<!--Header-Upper-->
+<div class="header-upper bg-white">
+    <div class="container clearfix">
+        <div class="header-inner py-20 border-bottom-0">
+            <div class="logo-outer">
+                <div class="logo"><a href="{% url 'pages:home' %}">
+                    <img class="main-logo" src="{% static 'assets/images/logos/logo.png' %}" alt="Logo"></a>
+                </div>
+            </div>
+
+            <div class="nav-outer clearfix">
+                <!-- Main Menu -->
+                <nav class="main-menu navbar-expand-lg">
+                    <div class="navbar-header">
+                        <div class="logo-mobile"><a href="{% url 'pages:home' %}"><img
+                                class="main-logo"
+                                src="{% static 'assets/images/logos/logo.png' %}"
+                                alt="Logo"></a>
+                            <a href="{% url 'account_profile' %}" class="r-0">حساب کاربری</a>
+                        </div>
+
+                        <!-- Toggle Button -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse" aria-controls="main-menu">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+                    <div class="navbar-collapse collapse clearfix" id="main-menu">
+                        <ul class="navigation clearfix">
+                            <li class=""><a href="{% url 'blogs:list' %}">خانه</a></li>
+                            <li class="dropdown"><a href="#">دسته بندی ها</a>
+                                <ul>
+                                    {% for category in categories %}
+                                        <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#">نویسندگان</a>
+                                <ul>
+                                    {% for author in authors %}
+                                        <li>
+                                            <a href="{% url 'blogs:author_list' author.username %}">{{ author.get_short_name|default:author.username }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'pages:contact' %}">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Main Menu End-->
+            </div>
+
+            <!-- Main Menu End-->
+            <!-- Menu Serch Box-->
+            <div class="nav-search">
+                <button class="fa fa-search"></button>
+                <form action="{% url 'blogs:list' %}" class="hide">
+                    <input type="text" placeholder="جستجو..." class="searchbox" name="q">
+                    <button type="submit" class="searchbutton fa fa-search"></button>
+                </form>
+            </div>
+
+            <div class="main-menu navbar-expand-lg menu-right d-none d-lg-flex align-items-center mr-lg-auto">
+                {% if user.is_authenticated %}
+                    <div class="navbar-collapse collapse clearfix" id="main-menu">
+                        <ul class="navigation clearfix">
+
+                            <li class="dropdown"><a href="#"><i
+                                    class="ml-3 fa fa-user"></i>{{ user.get_short_name|default:user.username }}</a>
+                                <ul>
+                                    <li><a href="{% url 'account_profile' %}">پروفایل من</a></li>
+                                    <li><a href="{% url 'account_change_password' %}">تغییر رمز عبور</a></li>
+                                    <li><a class="text text-danger" href="{% url 'account_logout' %}">خروج از حساب</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="login"><i class="fas fa-lock"></i> ثبت نام </a>
+                    <a href="{% url 'account_login' %}" class="theme-btn style-two">ورود<i
+                            class="fas fa-arrow-left"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Header Upper-->
+
+

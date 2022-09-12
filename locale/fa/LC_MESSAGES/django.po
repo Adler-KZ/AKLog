@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-06 22:57+0430\n"
+"PO-Revision-Date: 2022-09-06 22:15+0430\n"
+"Last-Translator: ادمین ادمین آبادی <admin@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\accounts\admin.py:14
+msgid "Personal info"
+msgstr "اطلاعات شخصی"
+
+#: .\accounts\admin.py:16
+msgid "Permissions"
+msgstr "دسترسی ها"
+
+#: .\accounts\admin.py:26
+msgid "Important dates"
+msgstr "تاریخ های مهم"
+
+#: .\accounts\models.py:14 .\comments\models.py:21 .\pages\forms.py:9
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\accounts\models.py:15
+msgid "Bio"
+msgstr "بیوگرافی"
+
+#: .\accounts\models.py:33
+msgid "Ip address"
+msgstr "آدرس آی پی"
+
+#: .\blogs\forms.py:13 .\blogs\models.py:29
+msgid "Title"
+msgstr "عنوان"
+
+#: .\blogs\forms.py:14 .\blogs\models.py:30
+msgid "Slug"
+msgstr "دامنه"
+
+#: .\blogs\forms.py:15
+msgid "content"
+msgstr "محتوا"
+
+#: .\blogs\forms.py:26 .\blogs\models.py:16
+msgid "Draft"
+msgstr "پیش نویس"
+
+#: .\blogs\forms.py:27 .\blogs\models.py:18
+msgid "Review"
+msgstr "بررسی"
+
+#: .\blogs\models.py:17
+msgid "Public"
+msgstr "منتشر"
+
+#: .\blogs\models.py:23 .\comments\models.py:22
+msgid "Blog"
+msgstr "مقاله"
+
+#: .\blogs\models.py:24
+msgid "Blogs"
+msgstr "بلاگ ها"
+
+#: .\blogs\models.py:31
+msgid "Content"
+msgstr "محتوا"
+
+#: .\blogs\models.py:32 .\categories\models.py:22
+msgid "Categories"
+msgstr "دسته بندی ها"
+
+#: .\blogs\models.py:33 .\blogs\models.py:52
+msgid "Cover"
+msgstr "کاور"
+
+#: .\blogs\models.py:35
+msgid "Author"
+msgstr "نویسنده"
+
+#: .\blogs\models.py:36
+msgid "Status"
+msgstr "وضعیت"
+
+#: .\blogs\models.py:37
+msgid "Vip blog"
+msgstr "مقاله ویژه"
+
+#: .\blogs\models.py:38
+msgid "Hits"
+msgstr "بازدید"
+
+#: .\categories\models.py:21
+msgid "Category"
+msgstr "دسته بندی"
+
+#: .\comments\forms.py:14 .\comments\models.py:20
+msgid "Full name"
+msgstr "نام و نام خانوادگی"
+
+#: .\comments\forms.py:15
+msgid "Your email"
+msgstr "ایمیل شما"
+
+#: .\comments\forms.py:17
+msgid "Write your message"
+msgstr "پیام خود را بنویسید"
+
+#: .\comments\models.py:13
+msgid "Very bad"
+msgstr "خیلی بد"
+
+#: .\comments\models.py:14
+msgid "Bad"
+msgstr "بد"
+
+#: .\comments\models.py:15
+msgid "Normal"
+msgstr "معمولی"
+
+#: .\comments\models.py:16
+msgid "Good"
+msgstr "خوب"
+
+#: .\comments\models.py:17
+msgid "Very good"
+msgstr "خیلی خوب"
+
+#: .\comments\models.py:19
+msgid "Text"
+msgstr "متن"
+
+#: .\comments\models.py:23
+msgid "Is active"
+msgstr "فعال است"
+
+#: .\comments\models.py:24
+msgid "Score"
+msgstr "امتیاز"
+
+#: .\pages\forms.py:8
+msgid "Full Name"
+msgstr "نام و نام خانوادگی"
+
+#: .\pages\forms.py:11
+msgid "Message"
+msgstr "پیام"
+
+#: .\pages\forms.py:16
+msgid "User comments"
+msgstr "نظرات کاربران"
+
+#: .\templates\account\logout.html:6
+#: .\templates\account\password_reset_done.html:6
+#: .\templates\account\password_reset_from_key_done.html:6
+msgid "Password Reset"
+msgstr "تنظیم مجدد رمز عبور"
+
+#: .\templates\account\password_reset_done.html:21
+msgid ""
+"We have sent you an e-mail. If you have not received it please check your\n"
+"                            spam folder. Otherwise\n"
+"                            contact us if you do not receive it in a few "
+"minutes."
+msgstr ""
+"ما برای شما یک ایمیل فرستادیم. اگر آن را دریافت نکرده اید لطفاً پوشه هرزنامه "
+"خود را بررسی کنید. در غیر این صورت\n"
+"اگر ظرف چند دقیقه آن را دریافت نکردید با ما تماس بگیرید."
+
+#: .\templates\account\password_reset_from_key_done.html:21
+msgid "Your password is now changed."
+msgstr "رمز عبور شما اکنون تغییر کرده است."

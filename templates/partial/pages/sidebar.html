@@ -1,0 +1,58 @@
+{% load blog_tags %}
+{% load static %}
+
+
+<div class="col-lg-4 col-md-8">
+    <div class="blog-sidebar">
+        {% if request.resolver_match.url_name != 'detail' %}
+            <div class="widget search-widget wow fadeInUp delay-0-2s">
+                <h3 class="widget-title">جستجو</h3>
+                <form action="" method="get">
+                    <input type="search" placeholder="جستجو..." required name="q">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        {% endif %}
+        <div class="widget category-widget wow fadeInUp delay-0-4s">
+            {% if request.resolver_match.url_name == 'category' and category_obj.children.active %}
+                <div class="widget tag-widget wow fadeInUp delay-0-2s">
+                    <h3 class="widget-title">تگ های مربوط به " {{ category_obj.title }} "</h3>
+                    <div class="tag-clouds">
+                        {% for child in category_obj.children.active %}
+                            <a href="{% url  'blogs:category' child.slug %}">{{ child.title }}</a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            {% endif %}
+            <!--====== Most popular blog ======-->
+            {% best_blogs %}
+            <!--====== Top month blogs ======-->
+            {% top_month_blogs %}
+
+            <div class="widget call-action-widget wow fadeInUp delay-0-2s">
+                <h3>در هر ساعتی از شبانه روز</h3>
+                <span class="h2">خوابیم :)</span>
+                <div class="action-btn"><a href="{% url 'pages:contact' %}" class="theme-btn">تماس با ما<i
+                        class="fas fa-arrow-left"></i></a></div>
+                <div>
+                    <p class="text-light h5">آدرس ایمیل ما: </p>
+                    <a class="number" href="mailto:+01234567899">discord.1843@gmail.com</a>
+                </div>
+                <div>
+                    <p class="text-light h5">شماره تماس ما: </p>
+                    <a class="number d-block" dir="ltr" href="tel:+98999999999">+98 999 9999</a>
+                </div>
+                <img class="action-man" src="{% static 'assets/images/cover/love2.svg' %}"
+                     alt="Call To Action">
+                <img class="dots-shape slideUpDown"
+                     src="{% static 'assets/images/shapes/white-dots-two.png' %}"
+                     alt="Shape">
+                <img class="circle-shape slideUpRight" src="{% static 'assets/images/shapes/circle.png' %}"
+                     alt="Shape">
+            </div>
+
+        </div>
+    </div>
+</div>

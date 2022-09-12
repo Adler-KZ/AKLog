@@ -1,0 +1,63 @@
+{% extends '_base.html' %}
+{% load blog_tags %}
+{% load static %}
+
+{% block header %}
+    <h1 class="page-title wow fadeInUp delay-0-2s">مقالات من</h1>
+{% endblock %}
+
+
+{% block right-sidebar %}
+    {% include 'partial/pages/dashboard_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ردیف</th>
+            <th scope="col">عنوان</th>
+            <th scope="col">تصویر</th>
+            <th scope="col">وضعیت</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for blog in blogs %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><a href="{{ blog.get_absolute_url }}"><b>{{ blog.title }}</b></a></td>
+                <td><img src="{{ blog.cover.url }}" style="height: 50px; width: 50px; object-fit: contain"
+                         alt="{{ blog.title }}"></td>
+                <td>
+                    {% if blog.status == 'p' %}
+                        <small class="badge-success p-1 rounded">منتشر شده</small>
+                    {% elif blog.status == 'd' %}
+                        <small class="badge-danger p-1 rounded">پیش نویس</small>
+                        <small class="badge-warning p-1 rounded"><a href="{% url 'blogs:update' blog.slug %}">ویرایش</a></small>
+                    {% else %}
+                        <small class="badge-info p-1 rounded">در حال بررسی</small>
+
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-block">
+        {% if page_obj.has_other_pages %}
+            <div class="text-center mt-25 justify-content-center mb-5">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="sub-title p-2 rounded"><i
+                            class="fa fa-angle-double-right"></i></a>
+                {% endif %}
+                <span class="sub-title p-2">{{ page_obj.start_index }} تا {{ page_obj.end_index }}</span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="sub-title p-2 rounded"><i
+                            class="fa fa-angle-double-left"></i></a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+

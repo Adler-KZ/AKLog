@@ -1,0 +1,17 @@
+{% extends '_handler.html' %}
+
+{% block title %}
+    Error 404
+{% endblock %}
+
+{% block status_code %}
+    <p class="handler" data-depth="0.50">404</p>
+    <p class="handler" data-depth="0.10">404</p>
+{% endblock %}
+
+{% block text %}
+    <article>
+        <p dir="rtl">اوه نه! مثل اینکه گم شدی<br>اگه جرات داری برگرد به صفحه اصلی!</p>
+        <a href="/" dir="rtl">جرات دارم!</a>
+    </article>
+{% endblock %}

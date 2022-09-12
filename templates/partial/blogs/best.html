@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="widget news-widget wow fadeInUp delay-0-2s">
+    <h3 class="widget-title">محبوب ترین مقالات</h3>
+    <div class="news-widget-wrap">
+        {% for blog in blogs %}
+            <div class="news-widget-item">
+                <img src="{{ blog.cover.url }}" style="height: 100px; width: 100px; object-fit: contain" alt="{{ blog.title }}">
+                <div class="content">
+                    <h5><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h5>
+                    <span class="date"><i class="fa fa-star"></i><a
+                            href="blog-details.html">{{ blog.score|default_if_none:0|floatformat }} از 5 امتیاز</a></span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <hr>
+</div>

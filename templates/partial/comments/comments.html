@@ -1,0 +1,80 @@
+{% load static %}
+{% load gravatar %}
+{% load humanize %}
+
+<form id="comment-form" class="contact-form-three pt-20 wow fadeInUp delay-0-2s"
+      action="{% url 'comments:create' slug %}" method="post">
+    <h3 id="form-title" class="comment-title mb-40">نظر خود را بنویسید</h3>
+    <p id="reply-to" class="d-none"><span id="reply-text"></span><a id="close-reply"><i
+            class="far fa-window-close mx-1 text-danger"></i></a></p>
+    {% csrf_token %}
+    {{ form.parent }}
+    <div class="row clearfix">
+        {% if not user.is_authenticated %}
+            <div class="col-sm-6">
+                <div class="form-group">
+                    {{ form.name }}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                {{ form.score }}
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    {{ form.email }}
+                </div>
+            </div>
+        {% else %}
+            <div class="col-sm-12">
+                {{ form.score }}
+            </div>
+        {% endif %}
+        <div class="col-md-12">
+            <div class="form-group">
+                {{ form.text }}
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group mb-0">
+                <button class="theme-btn" type="submit">ارسال نظر <i class="fas fa-arrow-left"></i></button>
+            </div>
+        </div>
+    </div>
+</form>
+<hr>
+
+<div class="comments mr-xl-4">
+    <h3 class="comment-title pt-30 mb-40">نظرات شما</h3>
+    {% for comment in comments %}
+        <div class="comment-item wow fadeInUp delay-0-2s">
+            <div class="author-image">
+                {% gravatar comment.email 100 %}
+            </div>
+            <div class="comment-details">
+                <div class="name-date">
+                    <h4>{{ comment.name }}</h4>
+                    <span class="date">{{ comment.datetime_created|naturaltime }}</span>
+                </div>
+                <p>{{ comment.text }}</p>
+                <a class="reply" data-id="{{ comment.id }}" data-name="{{ comment.username }}">پاسخ <i
+                        class="fas fa-long-arrow-alt-left"></i></a>
+            </div>
+        </div>
+        {% for child in comment.children.active %}
+            <div class="comment-item child-comment wow fadeInUp delay-0-4s">
+                <div class="author-image">
+                    {% gravatar child.email 100 %}
+                </div>
+                <div class="comment-details">
+                    <div class="name-date">
+                        <h4>{{ child.name }}</h4>
+                        <span class="date">{{ child.datetime_created|naturaltime }}</span>
+                    </div>
+                    <p>{{ child.text }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% empty %}
+        <span class="sub-title w-100 text-center align-items-center">هیج نظری وجود ندارد :(</span>
+    {% endfor %}
+</div>

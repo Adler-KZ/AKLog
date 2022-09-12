@@ -1,0 +1,33 @@
+{% extends "_auth.html" %}
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+{% load account %}
+
+{% block title %}{% trans "Password Reset" %}{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'accounts/images/email.svg' %}" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>{% trans "Verify Your E-mail Address" %}</h3>
+                        </div>
+                        <p>
+                            ما برای شما یک ایمیل برای تایید ارسال کرده ایم. برای نهایی کردن مراحل ثبت نام، لینک ارائه
+                            شده را دنبال کنید. گر ایمیل تأیید را در صندوق ورودی اصلی خود نمی بینید، پوشه هرزنامه خود را
+                            بررسی کنید.اگر ایمیل تأیید را در عرض چند دقیقه دریافت
+                            نکردید، لطفاً با ما تماس بگیرید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
